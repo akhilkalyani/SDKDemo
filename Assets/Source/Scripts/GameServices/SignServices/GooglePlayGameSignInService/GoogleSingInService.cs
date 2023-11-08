@@ -29,7 +29,7 @@ namespace TPSDK.Services.SignInServices
         private void SignIn(GooglePlayGameSignInEvent e)
         {
             _signIncallback = e.SingInStatusCallback;
-            PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
+            PlayGamesPlatform.Instance.ManuallyAuthenticate(ProcessAuthentication);
         }
         internal void ProcessAuthentication(SignInStatus status)
         {
@@ -43,7 +43,7 @@ namespace TPSDK.Services.SignInServices
                     ProfileImageUrl = PlayGamesPlatform.Instance.GetUserImageUrl()
                 };
                 Utils.CallEventAsync(new SetSignInData(signInuser));
-                GF.Console.Log(GF.LogType.HttpResponse,JsonConvert.SerializeObject(signInuser));
+                GF.Console.Log(GF.LogType.Log,JsonConvert.SerializeObject(signInuser));
                 _signIncallback?.Invoke(true);
             }
             else
@@ -55,8 +55,6 @@ namespace TPSDK.Services.SignInServices
                 Debug.LogError("Login failed");
             }
         }
-
-
         public override void RemoveListener()
         {
             EventManager.Instance.AddListener<GooglePlayGameSignInEvent>(SignIn);
