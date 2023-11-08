@@ -25,7 +25,7 @@ namespace TPSDK.UIScreens
         }
         private void Start()
         {
-            Utils.RaiseEventAsync(new UnloadingEvent(null));
+            UnitySceneManager.HideLoadingScreen(null);
         }
         private void AppleLogin()
         {
@@ -34,21 +34,21 @@ namespace TPSDK.UIScreens
 
         private void GoogleLogin()
         {
-            Utils.RaiseEventAsync(new LoadingEvent(() =>
+            UnitySceneManager.ShowLoadingScreen(() =>
             {
-                Utils.RaiseEventAsync(new GooglePlayGameSignInEvent(OnSignIn));
-            }));
+                Utils.CallEventAsync(new GooglePlayGameSignInEvent(OnSignIn));
+            }); 
         }
 
         private void OnSignIn(bool IsLogingSuccess)
         {
             if (IsLogingSuccess)
             {
-                Utils.RaiseEventAsync(new SceneLoadingEvent((int)SceneName.Game));
+                UnitySceneManager.ChangeScene((int)SceneName.Game);
             }
             else
             {
-                GF.Console.Log(GF.LogType.Error,"Login failed!");
+                UnitySceneManager.HideLoadingScreen(()=> GF.Console.Log(GF.LogType.Error, "Login failed!"));
             }
         }
 

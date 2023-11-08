@@ -7,6 +7,7 @@ using UnityEngine;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using System;
+using Newtonsoft.Json;
 
 namespace TPSDK.Services.SignInServices
 {
@@ -27,6 +28,7 @@ namespace TPSDK.Services.SignInServices
         }
         private void SignIn(GooglePlayGameSignInEvent e)
         {
+            _signIncallback = e.SingInStatusCallback;
             PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
         }
         internal void ProcessAuthentication(SignInStatus status)
@@ -40,7 +42,8 @@ namespace TPSDK.Services.SignInServices
                     UserName = PlayGamesPlatform.Instance.GetUserDisplayName(),
                     ProfileImageUrl = PlayGamesPlatform.Instance.GetUserImageUrl()
                 };
-                Utils.RaiseEventAsync(new SetSignInData(signInuser));
+                Utils.CallEventAsync(new SetSignInData(signInuser));
+                GF.Console.Log(GF.LogType.HttpResponse,JsonConvert.SerializeObject(signInuser));
                 _signIncallback?.Invoke(true);
             }
             else

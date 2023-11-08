@@ -20,7 +20,7 @@ namespace TPSDK.UIScreens
         private UserSignIn _userSign;
         private void Start()
         {
-            Utils.RaiseEventAsync(new GetSignInData(GetLoginData));
+            Utils.CallEventAsync(new GetSignInData(GetLoginData));
         }
 
         private void GetLoginData(UserSignIn loginData)
@@ -31,7 +31,7 @@ namespace TPSDK.UIScreens
             }
             _userSign = loginData;
             userNameTxt.text = _userSign.UserName;
-            Utils.RaiseEventAsync(new DownloadImageEvent(_userSign.ProfileImageUrl, SetProfileImage));
+            WebApiManger.DownloadImage(_userSign.ProfileImageUrl,SetProfileImage);
         }
 
         private void SetProfileImage(Texture2D tex)
@@ -39,7 +39,7 @@ namespace TPSDK.UIScreens
             if(tex!=null)
                 profilePicImage.texture = tex;
 
-            Utils.RaiseEventAsync(new UnloadingEvent(null));
+            UnitySceneManager.HideLoadingScreen(null);
         }
     }
 }

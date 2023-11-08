@@ -10,12 +10,12 @@ namespace TPSDK.UIScreens
         protected override void OnEnable()
         {
             base.OnEnable();
-            _logoRectTransform.DOScale(new Vector3(0,0,0), 0.4f)
+            _logoRectTransform.DOScale(new Vector3(0, 0, 0), 0.4f)
                 .SetEase(Ease.Flash)
                 .OnComplete(() =>
                 {
                     _logoRectTransform.DOKill();
-                    Utils.RaiseEventAsync(new LoadingEvent(()=> SwitchScreen(SplashScreenType.Login)));
+                    UnitySceneManager.ShowLoadingScreen(()=> SwitchScreen(SplashScreenType.Login));
                 });
         }
     }
