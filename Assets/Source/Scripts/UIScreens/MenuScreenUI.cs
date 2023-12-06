@@ -41,5 +41,9 @@ namespace TPSDK.UIScreens
 
             UnitySceneManager.HideLoadingScreen(null);
         }
+        protected override void OnBackKeyPressed()
+        {
+            Application.Quit();
+        }
     }
 }

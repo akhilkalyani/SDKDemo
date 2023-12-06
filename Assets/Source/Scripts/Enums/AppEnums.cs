@@ -14,4 +14,11 @@ namespace TPSDK.Enums
         Splash=0,
         Game=1
     }
+    public enum LoginType : byte
+    {
+        None=0,
+        Google=1,
+        Facebook=2,
+        Apple=3,
+    }
 }

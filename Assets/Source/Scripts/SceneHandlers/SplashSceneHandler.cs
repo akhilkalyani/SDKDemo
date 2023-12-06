@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using GF;
+using GooglePlayGames;
 using TPSDK.Enums;
+using TPSDK.Services;
 using TPSDK.Services.SignInServices;
 using UnityEngine;
 namespace TPSDK.SceneHandlers
@@ -21,6 +23,7 @@ namespace TPSDK.SceneHandlers
         protected override void RegisterServices()
         {
             ApplicationManager.Instance.AddService<SignInService>();
+            ApplicationManager.Instance.AddService<SessionService>();
         }
     }
 }

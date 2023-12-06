@@ -107,7 +107,6 @@ namespace GF
             if (imageRequestQueue.Count > imageMaxRequest)
             {
                 isWait = true;
-                Debug.Log("Request is waiting-->" + imageRequestCount);
                 while (isWait)
                 {
                     waitTime += Time.deltaTime;
@@ -115,20 +114,16 @@ namespace GF
                         isWait = false;
                     yield return null;
                 }
-
-                Debug.Log("wait time->" + waitTime);
                 yield return new WaitUntil(() => !isWait);
             }
             using (UnityWebRequest request = UnityWebRequestTexture.GetTexture(url))
             {
-                Debug.Log("<color=magenta>Request Arrive->" + imageRequestCount + "</color>");
                 yield return request.SendWebRequest();
                 if (request.result!=UnityWebRequest.Result.Success)
                 {
                     Debug.Log(request.error);
                     image?.Invoke(null);
                     var finishedRequest = imageRequestQueue.Dequeue();
-                    Debug.Log("<color=blue>Request is Completed with failed status->" + finishedRequest.RequestID + "</color>");
                 }
                 else
                 {
@@ -139,7 +134,6 @@ namespace GF
                     }
                     image?.Invoke(DownloadHandlerTexture.GetContent(request));
                     var finishedRequest = imageRequestQueue.Dequeue();
-                    Debug.Log("<color=blue>Request is Completed->" + finishedRequest.RequestID + "</color>");
                 }
             }
             if (imageRequestQueue.Count == 0)
@@ -197,7 +191,7 @@ namespace GF
         
         private IEnumerator PostRequest(string url, string requestType, string data, Action<string, string, string> onPostCompleteCalback)
         {
-            using (var request = UnityWebRequest.PostWwwForm(url, data))
+            using (var request = UnityWebRequest.Post(url, data))
             {
                 request.SetRequestHeader("Content-Type", "application/json");
                 request.SetRequestHeader("Authorization", "Bearer " + BearerToken);

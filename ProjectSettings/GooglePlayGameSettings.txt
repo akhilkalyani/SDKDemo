@@ -1,11 +1,9 @@
 lastUpgrade=01101
 proj.pluginVersion=0.11.01
-proj.AppId=225277992449
-and.BundleId=com.SDKDemo.SDKCompany
+proj.AppId=894579338771
+and.BundleId=com.juegostudios.testIAP
 proj.classDir=Assets
 proj.ConstantsClassName=GPGSIds
-and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0a%3c%21--Google+Play+game+services+IDs.+Save+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.--%3e%0a%3cresources%3e%0a++%3c%21--app_id--%3e%0a++%3cstring+name%3d%22app_id%22+translatable%3d%22false%22%3e225277992449%3c%2fstring%3e%0a++%3c%21--package_name--%3e%0a++%3cstring+name%3d%22package_name%22+translatable%3d%22false%22%3ecom.SDKDemo.SDKCompany%3c%2fstring%3e%0a%3c%2fresources%3e
-and.ClientId=225277992449-sqpi8inqshbkr4kn0eroglvap1n04u6h.apps.googleusercontent.com
+and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0a%0a%3c%21--%0a%0aGoogle+Play+game+services+IDs.%0a%0aSave+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.%0a%0a--%3e%0a%0a%3cresources%3e%0a%0a%3c%21--+app_id+--%3e%0a%0a%3cstring+name%3d%22app_id%22+translatable%3d%22false%22%3e894579338771%3c%2fstring%3e%0a%0a%3c%21--+package_name+--%3e%0a%0a%3cstring+name%3d%22package_name%22+translatable%3d%22false%22%3ecom.juegostudios.testIAP%3c%2fstring%3e%0a%0a%3c%21--+achievement+Achievement+1+--%3e%0a%0a%3cstring+name%3d%22achievement_achievement_1%22+translatable%3d%22false%22%3eCgkIk9zVyIQaEAIQAg%3c%2fstring%3e%0a%0a%3c%21--+achievement+Achievement+2+--%3e%0a%0a%3cstring+name%3d%22achievement_achievement_2%22+translatable%3d%22false%22%3eCgkIk9zVyIQaEAIQAw%3c%2fstring%3e%0a%0a%3c%21--+achievement+Achievement+3+--%3e%0a%0a%3cstring+name%3d%22achievement_achievement_3%22+translatable%3d%22false%22%3eCgkIk9zVyIQaEAIQBA%3c%2fstring%3e%0a%0a%3c%21--+achievement+Achievement+4+--%3e%0a%0a%3cstring+name%3d%22achievement_achievement_4%22+translatable%3d%22false%22%3eCgkIk9zVyIQaEAIQBQ%3c%2fstring%3e%0a%0a%3c%21--+achievement+Achievement+5+--%3e%0a%0a%3cstring+name%3d%22achievement_achievement_5%22+translatable%3d%22false%22%3eCgkIk9zVyIQaEAIQBg%3c%2fstring%3e%0a%0a%3c%21--+achievement+Achievement+6+--%3e%0a%0a%3cstring+name%3d%22achievement_achievement_6%22+translatable%3d%22false%22%3eCgkIk9zVyIQaEAIQCA%3c%2fstring%3e%0a%0a%3c%21--+achievement+Achievement+7+--%3e%0a%0a%3cstring+name%3d%22achievement_achievement_7%22+translatable%3d%22false%22%3eCgkIk9zVyIQaEAIQCQ%3c%2fstring%3e%0a%0a%3c%21--+leaderboard+Test+Leaderboard+--%3e%0a%0a%3cstring+name%3d%22leaderboard_test_leaderboard%22+translatable%3d%22false%22%3eCgkIk9zVyIQaEAIQBw%3c%2fstring%3e%0a%0a%3c%2fresources%3e
+and.ClientId=894579338771-erq1stvbhagcvjfokpcd66biogr4bh80.apps.googleusercontent.com
 android.SetupDone=true
-App.NearbdServiceId=com.SDKDemo.SDKCompany
-android.NearbySetupDone=true
